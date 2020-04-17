@@ -34,11 +34,11 @@ namespace Labaaa3
     {
         static void Main(string[] args)
         {
-            Person p1 = new Person("Bill");
-            p1.Display(); // вызов метода Display из класса Person
+            Person p1 = new Person("Дмитрий");
+            p1.Display();
 
-            Employee p2 = new Employee("Tom", "Microsoft");
-            p2.Display(); // вызов метода Display из класса Person
+            Employee p2 = new Employee("Георгий", "Apple");
+            p2.Display();
 
             Console.ReadKey();
         }
