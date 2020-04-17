@@ -1,0 +1,6 @@
+C:\Users\Иван\source\repos\INIDLL\INIDLL\bin\Debug\INIDLL.dll
+C:\Users\Иван\source\repos\INIDLL\INIDLL\bin\Debug\INIDLL.pdb
+C:\Users\Иван\source\repos\INIDLL\INIDLL\obj\Debug\INIDLL.csprojAssemblyReference.cache
+C:\Users\Иван\source\repos\INIDLL\INIDLL\obj\Debug\INIDLL.csproj.CoreCompileInputs.cache
+C:\Users\Иван\source\repos\INIDLL\INIDLL\obj\Debug\INIDLL.dll
+C:\Users\Иван\source\repos\INIDLL\INIDLL\obj\Debug\INIDLL.pdb

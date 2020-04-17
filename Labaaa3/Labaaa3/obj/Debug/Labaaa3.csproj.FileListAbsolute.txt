@@ -1,0 +1,7 @@
+C:\Users\Иван\source\repos\Labaaa3\Labaaa3\bin\Debug\Labaaa3.exe.config
+C:\Users\Иван\source\repos\Labaaa3\Labaaa3\bin\Debug\Labaaa3.exe
+C:\Users\Иван\source\repos\Labaaa3\Labaaa3\bin\Debug\Labaaa3.pdb
+C:\Users\Иван\source\repos\Labaaa3\Labaaa3\obj\Debug\Labaaa3.csprojAssemblyReference.cache
+C:\Users\Иван\source\repos\Labaaa3\Labaaa3\obj\Debug\Labaaa3.csproj.CoreCompileInputs.cache
+C:\Users\Иван\source\repos\Labaaa3\Labaaa3\obj\Debug\Labaaa3.exe
+C:\Users\Иван\source\repos\Labaaa3\Labaaa3\obj\Debug\Labaaa3.pdb
