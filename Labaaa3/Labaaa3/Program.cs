@@ -20,7 +20,7 @@ using System.Threading.Tasks;
                 MersedesList = new List<Mersedes>();
                 BentleyList = new List<Bentley>();
                 NissanList = new List<Nissan>();
-                MazdaList = new List<Mazda>();
+                MazdaList = new List<Mazda>(); 
             start: Console.WriteLine("Программа учета автомобилей");
                 Console.WriteLine("1 - посмотреть автомобиль");
                 Console.WriteLine("2 - посмотреть автомобиль(подробная информация)");
@@ -80,7 +80,8 @@ using System.Threading.Tasks;
                         Console.WriteLine("3 - Bentley");
                         Console.WriteLine("4 - Nissan");
                         Console.WriteLine("5 - Mazda");
-                        n = Convert.ToInt32(Console.ReadLine());
+                        n = Convert.ToInt32(Console.ReadLine());                      
+                        Types type;
                         string name;
                         string model;
                         string car_code;
@@ -89,6 +90,9 @@ using System.Threading.Tasks;
                         switch (n)
                         {
                             case 1:
+                                Console.WriteLine("Имеющееся типы:");
+                                type = Types.Passenger;
+                                Console.WriteLine(type);
                                 Console.WriteLine("Укажите название:");
                                 name = Console.ReadLine();
                                 Console.WriteLine("Укажите тип:");
@@ -99,7 +103,7 @@ using System.Threading.Tasks;
                                 color = Console.ReadLine();
                                 Console.WriteLine("Укажите цену:");
                                 price = Convert.ToDouble(Console.ReadLine());
-                                Bmw item = new Bmw(name, model, car_code, new string[] { color }, price);
+                                Bmw item = new Bmw(type, name, model, car_code, new string[] { color }, price);
                                 BmwList.Add(item);
                                 Console.WriteLine("Автомобиль успешно добавлен!");
                                 goto start;
@@ -174,23 +178,25 @@ using System.Threading.Tasks;
                 }
             }
         }
-        public class Car//Класс автомобилей
-        {
-            private string type;
+         public enum Types { Jeep, Passenger, Truck, Minivan }
+         public class Car//Класс автомобилей
+         {
+            public Types types;
             private string name;
             private string model;
             private string car_code;
             private string[] color;
             private double price;
-            public string Type
+
+            public Types Type
             {
                 get
                 {
-                    return type;
+                    return types;
                 }
                 set
                 {
-                    type = value;
+                    types = value;
                 }
             }
             public string Name
@@ -242,7 +248,7 @@ using System.Threading.Tasks;
                 }
             }
 
-        public string CarCode
+            public string CarCode
             {
                 get
                 {
@@ -272,15 +278,17 @@ using System.Threading.Tasks;
             {
             
             }
-        }
-        public class Bmw : Car
-    {
-            static int count = 0;
+         }
 
-        public Bmw(string name, string model, string car_code, string[] color, double price)
+
+        public class Bmw : Car
         {
-            Type = "BMW";
-            Name = name;
+            static int count = 0;
+        
+        public Bmw(Types type ,string name, string model, string car_code, string[] color, double price)
+        {
+            Type = Type;
+            Name = "BMW";
             Model = model;
             CarCode = car_code;
             Color = color;
@@ -320,8 +328,8 @@ using System.Threading.Tasks;
 
             public Mersedes(string name, string model, string car_code, string[] color, double price)
             {
-                Type = "Mersedes";
-                Name = name;
+                Type = Type;
+                Name = "Mersedes";
                 Model = model;
                 CarCode = car_code;
                 Color = color;
@@ -361,8 +369,8 @@ using System.Threading.Tasks;
 
             public Bentley(string name, string model, string car_code, string[] color, double price)
             {
-                Type = "Bentley";
-                Name = name;
+                Type = Type;
+                Name = "Bentley";
                 Model = model;
                 CarCode = car_code;
                 Color = color;
@@ -402,8 +410,8 @@ using System.Threading.Tasks;
 
             public Nissan(string name, string model, string car_code, string[] color, double price)
             {
-                Type = "Nissan";
-                Name = name;
+                Type = Type;
+                Name = "Nissan";
                 Model = model;
                 CarCode = car_code;
                 Color = color;
@@ -443,8 +451,8 @@ using System.Threading.Tasks;
 
             public Mazda(string name, string model, string car_code, string[] color, double price)
             {
-                Type = "Mazda";
-                Name = name;
+                Type = Type;
+                Name = "Mazda";
                 Model = model;
                 CarCode = car_code;
                 Color = color;

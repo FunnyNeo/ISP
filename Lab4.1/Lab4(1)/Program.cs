@@ -12,8 +12,8 @@ namespace Lab4_1_
 {
     class Program
     {
-        public static char[] english = new[] { 'Q', 'W', 'E', 'R', 'T', 'Y', 'A' };
-        public static char[] russain = new[] { 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Ф' };
+        public static char[] english = new[] { 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', 'A', 'S', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';',      'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',' , '.'};
+        public static char[] russain = new[] { 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Ф', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', 'Я'};
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(Int32 i);
 
