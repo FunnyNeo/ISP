@@ -221,8 +221,6 @@ using System.Threading.Tasks;
                     model = value;
                 }
             }
-
-
             public string this[int index] 
             {
                 get
@@ -234,8 +232,6 @@ using System.Threading.Tasks;
                     color[index] = value;
                 }
             }
-
-
             public string[] Color 
             {
                 get
@@ -247,7 +243,6 @@ using System.Threading.Tasks;
                    color = value;
                 }
             }
-
             public string CarCode
             {
                 get
