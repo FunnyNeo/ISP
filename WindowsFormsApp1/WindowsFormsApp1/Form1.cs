@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
     {
         Calc C;
         int k;
+        Memory M;
         public Form1()
         {
             InitializeComponent();
@@ -293,22 +294,22 @@ namespace WindowsFormsApp1
 
         private void buttonMPlus_Click(object sender, EventArgs e)
         {
-            C.M_Sum(Convert.ToDouble(labelNumber.Text));
+            M.M_Sum(Convert.ToDouble(labelNumber.Text));
         }
 
         private void buttonMMinus_Click(object sender, EventArgs e)
         {
-            C.M_Subtraction(Convert.ToDouble(labelNumber.Text));
+            M.M_Subtraction(Convert.ToDouble(labelNumber.Text));
         }
 
         private void buttonMMult_Click(object sender, EventArgs e)
         {
-            C.M_Multiplication(Convert.ToDouble(labelNumber.Text));
+            M.M_Multiplication(Convert.ToDouble(labelNumber.Text));
         }
 
         private void buttonMDiv_Click(object sender, EventArgs e)
         {
-            C.M_Division(Convert.ToDouble(labelNumber.Text));
+            M.M_Division(Convert.ToDouble(labelNumber.Text));
         }
 
         private void buttonMRC_Click(object sender, EventArgs e)
@@ -318,11 +319,11 @@ namespace WindowsFormsApp1
                 k++;
 
                 if (k == 1)
-                    labelNumber.Text = C.MemoryShow().ToString();
+                    labelNumber.Text = M.MemoryShow().ToString();
 
                 if (k == 2)
                 {
-                    C.MemoryClear();
+                    M.MemoryClear();
                     labelNumber.Text = "0";
 
                     k = 0;
@@ -330,7 +331,9 @@ namespace WindowsFormsApp1
             }
         }
     }
-    public interface ICalc
+
+    //Интерфейс для основных функций калькулятора
+    interface ICalc
     {
         void Put_A(double a); //сохранить а
         void Clear_A();
@@ -341,7 +344,12 @@ namespace WindowsFormsApp1
         double Subtraction(double b);
         double Sqrt();
         double Square();
-        double Fact();
+        double Fact();   
+    }
+
+    //Интерфейс для MRC
+    interface ICalcm
+    {
         double MemoryShow();
         void MemoryClear();
         void M_Multiplication(double b);
@@ -350,11 +358,49 @@ namespace WindowsFormsApp1
         void M_Subtraction(double b);
     }
 
-    public class Calc : ICalc
-    {
-        private double a = 0;
-        private double memory = 0;
 
+
+    public class Memory : ICalcm
+    {
+        private double memory = 0;
+        //показать содержимое регистра мамяти
+        public double MemoryShow()
+        {
+            return memory;
+        }
+
+        //стереть содержимое регистра мамяти
+        public void MemoryClear()
+        {
+            memory = 0.0;
+        }
+
+        //* / + - к регистру памяти
+        public void M_Multiplication(double b)
+        {
+            memory *= b;
+        }
+
+        public void M_Division(double b)
+        {
+            memory /= b;
+        }
+
+        public void M_Sum(double b)
+        {
+            memory += b;
+        }
+
+        public void M_Subtraction(double b)
+        {
+            memory -= b;
+        }
+
+    }
+
+        public class Calc : ICalc
+        {
+        private double a = 0;
         public void Put_A(double a)
         {
             this.a = a;
@@ -402,47 +448,11 @@ namespace WindowsFormsApp1
         public double Fact()
         {
             double f = 1;
-
             for (int i = 1; i <= a; i++)
                 f *= (double)i;
-
             return f;
         }
-
-        //показать содержимое регистра мамяти
-        public double MemoryShow()
-        {
-            return memory;
-        }
-
-        //стереть содержимое регистра мамяти
-        public void MemoryClear()
-        {
-            memory = 0.0;
-        }
-
-        //* / + - к регистру памяти
-        public void M_Multiplication(double b)
-        {
-            memory *= b;
-        }
-
-        public void M_Division(double b)
-        {
-            memory /= b;
-        }
-
-        public void M_Sum(double b)
-        {
-            memory += b;
-        }
-
-        public void M_Subtraction(double b)
-        {
-            memory -= b;
-        }
-
     }
-
-
 }
+
+
