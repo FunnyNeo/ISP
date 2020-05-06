@@ -5,23 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-    namespace Labaaa3
+namespace Labaaa3
+{
+    class Program
     {
-        class Program
+        static public List<Bmw> BmwList;//List - это шаблон
+        static public List<Mersedes> MersedesList;
+        static public List<Bentley> BentleyList;
+        static public List<Nissan> NissanList;
+        static public List<Mazda> MazdaList;
+        static void Main(string[] args)
         {
-            static public List<Bmw> BmwList;//List - это шаблон
-            static public List<Mersedes> MersedesList;
-            static public List<Bentley> BentleyList;
-            static public List<Nissan> NissanList;
-            static public List<Mazda> MazdaList;
-            static void Main(string[] args)
+            BmwList = new List<Bmw>();
+            MersedesList = new List<Mersedes>();
+            BentleyList = new List<Bentley>();
+            NissanList = new List<Nissan>();
+            MazdaList = new List<Mazda>();
+            while (true)
             {
-                BmwList = new List<Bmw>();
-                MersedesList = new List<Mersedes>();
-                BentleyList = new List<Bentley>();
-                NissanList = new List<Nissan>();
-                MazdaList = new List<Mazda>(); 
-            start: Console.WriteLine("Программа учета автомобилей");
+                Console.WriteLine("Программа учета автомобилей");
                 Console.WriteLine("1 - посмотреть автомобиль");
                 Console.WriteLine("2 - посмотреть автомобиль(подробная информация)");
                 Console.WriteLine("3 - добавить автомобиль");
@@ -50,7 +52,7 @@ using System.Threading.Tasks;
                         {
                             item.AboutCar();
                         }
-                        goto start;
+                        break;
                     case 2:
                         foreach (Bmw item in BmwList)
                         {
@@ -72,7 +74,7 @@ using System.Threading.Tasks;
                         {
                             item.AboutCar(true);
                         }
-                        goto start;
+                        break;
                     case 3:
                         Console.WriteLine("Укажите марку автомобиля:");
                         Console.WriteLine("1 - BMW");
@@ -80,7 +82,7 @@ using System.Threading.Tasks;
                         Console.WriteLine("3 - Bentley");
                         Console.WriteLine("4 - Nissan");
                         Console.WriteLine("5 - Mazda");
-                        n = Convert.ToInt32(Console.ReadLine());                      
+                        n = Convert.ToInt32(Console.ReadLine());
                         Types type;
                         string name;
                         string model;
@@ -106,7 +108,7 @@ using System.Threading.Tasks;
                                 Bmw item = new Bmw(type, name, model, car_code, new string[] { color }, price);
                                 BmwList.Add(item);
                                 Console.WriteLine("Автомобиль успешно добавлен!");
-                                goto start;
+                                break;
                             case 2:
                                 Console.WriteLine("Укажите название:");
                                 name = Console.ReadLine();
@@ -121,7 +123,7 @@ using System.Threading.Tasks;
                                 Mersedes item2 = new Mersedes(name, model, car_code, new string[] { color }, price);
                                 MersedesList.Add(item2);
                                 Console.WriteLine("Автомобиль успешно добавлен!");
-                                goto start;
+                                break;
                             case 3:
                                 Console.WriteLine("Укажите название:");
                                 name = Console.ReadLine();
@@ -136,7 +138,7 @@ using System.Threading.Tasks;
                                 Bentley item3 = new Bentley(name, model, car_code, new string[] { color }, price);
                                 BentleyList.Add(item3);
                                 Console.WriteLine("Автомобиль успешно добавлен!");
-                                goto start;
+                                break;
                             case 4:
                                 Console.WriteLine("Укажите название:");
                                 name = Console.ReadLine();
@@ -151,7 +153,7 @@ using System.Threading.Tasks;
                                 Nissan item4 = new Nissan(name, model, car_code, new string[] { color }, price);
                                 NissanList.Add(item4);
                                 Console.WriteLine("Автомобиль успешно добавлен!");
-                                goto start;
+                                break;
                             case 5:
                                 Console.WriteLine("Укажите название:");
                                 name = Console.ReadLine();
@@ -166,121 +168,123 @@ using System.Threading.Tasks;
                                 Mazda item5 = new Mazda(name, model, car_code, new string[] { color }, price);
                                 MazdaList.Add(item5);
                                 Console.WriteLine("Автомобиль успешно добавлен!");
-                                goto start;
+                                break;
                             default:
                                 Console.WriteLine("Вы не указали марку автомобиля!");
-                                goto start;
+                                break;
+
                         }
+                        break;
                     case 4:
                         break;
-                    default:
-                        goto start;
+                    default: break;
                 }
             }
         }
-         public enum Types { Jeep, Passenger, Truck, Minivan }
-         public class Car//Класс автомобилей
-         {
-            public Types types;
-            private string name;
-            private string model;
-            private string car_code;
-            private string[] color;
-            private double price;
-
-            public Types Type
-            {
-                get
-                {
-                    return types;
-                }
-                set
-                {
-                    types = value;
-                }
-            }
-            public string Name
-            {
-                get
-                {
-                    return name;
-                }
-                set
-                {
-                    name = value;
-                }
-            }
-            public string Model
-            {
-                get
-                {
-                    return model;
-                }
-                set
-                {
-                    model = value;
-                }
-            }
-            public string this[int index] 
-            {
-                get
-                {
-                    return color[index];
-                }
-                set
-                {
-                    color[index] = value;
-                }
-            }
-            public string[] Color 
-            {
-                get
-                {
-                    return color;
-                }
-                set
-                {
-                   color = value;
-                }
-            }
-            public string CarCode
-            {
-                get
-                {
-                     return car_code;
-                }
-                set
-                {
-                      car_code = value;
-                }
-            }
-            public double Price
-            { 
-                get
-                {
-                    return price;
-                }
-                set
-                {
-                    price = value;
-                }
-            }
-            public virtual void AboutCar()
-            {
-
-            }
-            public virtual void AboutCar(bool check)
-            {
-            
-            }
-         }
-
-
-        public class Bmw : Car
+    }
+    public enum Types { Passenger, Jeep, Truck, Minivan }
+    public class Car//Класс автомобилей
+    {
+        public Types types;
+        private string name;
+        private string model;
+        private string car_code;
+        private string[] color;
+        private double price;
+     
+        public Types Type
         {
-            static int count = 0;
-        
-        public Bmw(Types type ,string name, string model, string car_code, string[] color, double price)
+            get
+            {
+                return types;
+            }
+            set
+            {
+                types = value;
+            }
+        }
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+        public string Model
+        {
+            get
+            {
+                return model;
+            }
+            set
+            {
+                model = value;
+            }
+        }
+        public string this[int index]
+        {
+            get
+            {
+                return color[index];
+            }
+            set
+            {
+                color[index] = value;
+            }
+        }
+        public string[] Color
+        {
+            get
+            {
+                return color;
+            }
+            set
+            {
+                color = value;
+            }
+        }
+        public string CarCode
+        {
+            get
+            {
+                return car_code;
+            }
+            set
+            {
+                car_code = value;
+            }
+        }
+        public double Price
+        {
+            get
+            {
+                return price;
+            }
+            set
+            {
+                price = value;
+            }
+        }
+        public virtual void AboutCar()
+        {
+
+        }
+        public virtual void AboutCar(bool check)
+        {
+
+        }
+    }
+
+
+    public class Bmw : Car
+    {
+        static int count = 0;
+
+        public Bmw(Types type, string name, string model, string car_code, string[] color, double price)
         {
             Type = Type;
             Name = "BMW";
@@ -289,196 +293,196 @@ using System.Threading.Tasks;
             Color = color;
             Price = price;
             count++;
-            }
-            public int Count
+        }
+        public int Count
+        {
+            get
             {
-                get
-                {
-                    return count;
-                }
-            }
-            public override void AboutCar()
-            {
-                Console.WriteLine("");
-                Console.WriteLine("Название: " + Name);
-                Console.WriteLine("Тип: " + Type);
-                Console.WriteLine("");
-            }
-            public override void AboutCar(bool check)
-            {
-                Console.WriteLine("");
-                Console.WriteLine("Название: " + Name);
-                Console.WriteLine("Тип: " + Type);
-                Console.WriteLine("Модель: " + Model);
-                Console.WriteLine("Код автомобиля: " + CarCode);
-                Console.WriteLine("Цвет: " + String.Join(" ", Color));
-                Console.WriteLine("Цена: " + Price);
-                Console.WriteLine("В наличии: " + Count);
-                Console.WriteLine("");
+                return count;
             }
         }
-        public class Mersedes : Car
+        public override void AboutCar()
         {
-            static int count = 0;
-
-            public Mersedes(string name, string model, string car_code, string[] color, double price)
-            {
-                Type = Type;
-                Name = "Mersedes";
-                Model = model;
-                CarCode = car_code;
-                Color = color;
-                Price = price;
-                count++;
-            }
-            public int Count
-            {
-                get
-                {
-                    return count;
-                }
-            }
-            public override void AboutCar()
-            {
-                Console.WriteLine("");
-                Console.WriteLine("Название: " + Name);
-                Console.WriteLine("Тип: " + Type);
-                Console.WriteLine("");
-            }
-            public override void AboutCar(bool check)
-            {
-                Console.WriteLine("");
-                Console.WriteLine("Название: " + Name);
-                Console.WriteLine("Тип: " + Type);
-                Console.WriteLine("Модель: " + Model);
-                Console.WriteLine("Код автомобиля: " + CarCode);
-                Console.WriteLine("Цвет: " + String.Join(" ", Color));
-                Console.WriteLine("Цена: " + Price);
-                Console.WriteLine("В наличии: " + Count);
-                Console.WriteLine("");
-            }
+            Console.WriteLine("");
+            Console.WriteLine("Название: " + Name);
+            Console.WriteLine("Тип: " + Type);
+            Console.WriteLine("");
         }
-        public class Bentley : Car
+        public override void AboutCar(bool check)
         {
-            static int count = 0;
-
-            public Bentley(string name, string model, string car_code, string[] color, double price)
-            {
-                Type = Type;
-                Name = "Bentley";
-                Model = model;
-                CarCode = car_code;
-                Color = color;
-                Price = price;
-                count++;
-            }
-            public int Count
-            {
-                get
-                {
-                    return count;
-                }
-            }
-            public override void AboutCar()
-            {
-                Console.WriteLine("");
-                Console.WriteLine("Название: " + Name);
-                Console.WriteLine("Тип: " + Type);
-                Console.WriteLine("");
-            }
-            public override void AboutCar(bool check)
-            {
-                Console.WriteLine("");
-                Console.WriteLine("Название: " + Name);
-                Console.WriteLine("Тип: " + Type);
-                Console.WriteLine("Модель: " + Model);
-                Console.WriteLine("Код автомобиля: " + CarCode);
-                Console.WriteLine("Цвет: " + String.Join(" ", Color));
-                Console.WriteLine("Цена: " + Price);
-                Console.WriteLine("В наличии: " + Count);
-                Console.WriteLine("");
-            }
-        }
-        public class Nissan : Car
-        {
-            static int count = 0;
-
-            public Nissan(string name, string model, string car_code, string[] color, double price)
-            {
-                Type = Type;
-                Name = "Nissan";
-                Model = model;
-                CarCode = car_code;
-                Color = color;
-                Price = price;
-                count++;
-            }
-            public int Count
-            {
-                get
-                {
-                    return count;
-                }
-            }
-            public override void AboutCar()
-            {
-                Console.WriteLine("");
-                Console.WriteLine("Название: " + Name);
-                Console.WriteLine("Тип: " + Type);
-                Console.WriteLine("");
-            }
-            public override void AboutCar(bool check)
-            {
-                Console.WriteLine("");
-                Console.WriteLine("Название: " + Name);
-                Console.WriteLine("Тип: " + Type);
-                Console.WriteLine("Модель: " + Model);
-                Console.WriteLine("Код автомобиля: " + CarCode);
-                Console.WriteLine("Цвет: " + String.Join(" ", Color));
-                Console.WriteLine("Цена: " + Price);
-                Console.WriteLine("В наличии: " + Count);
-                Console.WriteLine("");
-            }
-        }
-        public class Mazda : Car
-        {
-            static int count = 0;
-
-            public Mazda(string name, string model, string car_code, string[] color, double price)
-            {
-                Type = Type;
-                Name = "Mazda";
-                Model = model;
-                CarCode = car_code;
-                Color = color;
-                Price = price;
-                count++;
-            }
-            public int Count
-            {
-                get
-                {
-                    return count;
-                }
-            }
-            public override void AboutCar()
-            {
-                Console.WriteLine("");
-                Console.WriteLine("Название: " + Name);
-                Console.WriteLine("Тип: " + Type);
-                Console.WriteLine("");
-            }
-            public override void AboutCar(bool check)
-            {
-                Console.WriteLine("");
-                Console.WriteLine("Название: " + Name);
-                Console.WriteLine("Тип: " + Type);
-                Console.WriteLine("Модель: " + Model);
-                Console.WriteLine("Код автомобиля: " + CarCode);
-                Console.WriteLine("Цвет: " + String.Join(" ", Color));
-                Console.WriteLine("Цена: " + Price);
-                Console.WriteLine("В наличии: " + Count);
-                Console.WriteLine("");
-            }
+            Console.WriteLine("");
+            Console.WriteLine("Название: " + Name);
+            Console.WriteLine("Тип: " + Type);
+            Console.WriteLine("Модель: " + Model);
+            Console.WriteLine("Код автомобиля: " + CarCode);
+            Console.WriteLine("Цвет: " + String.Join(" ", Color));
+            Console.WriteLine("Цена: " + Price);
+            Console.WriteLine("В наличии: " + Count);
+            Console.WriteLine("");
         }
     }
+    public class Mersedes : Car
+    {
+        static int count = 0;
+
+        public Mersedes(string name, string model, string car_code, string[] color, double price)
+        {
+            Type = Type;
+            Name = "Mersedes";
+            Model = model;
+            CarCode = car_code;
+            Color = color;
+            Price = price;
+            count++;
+        }
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
+        public override void AboutCar()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Название: " + Name);
+            Console.WriteLine("Тип: " + Type);
+            Console.WriteLine("");
+        }
+        public override void AboutCar(bool check)
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Название: " + Name);
+            Console.WriteLine("Тип: " + Type);
+            Console.WriteLine("Модель: " + Model);
+            Console.WriteLine("Код автомобиля: " + CarCode);
+            Console.WriteLine("Цвет: " + String.Join(" ", Color));
+            Console.WriteLine("Цена: " + Price);
+            Console.WriteLine("В наличии: " + Count);
+            Console.WriteLine("");
+        }
+    }
+    public class Bentley : Car
+    {
+        static int count = 0;
+
+        public Bentley(string name, string model, string car_code, string[] color, double price)
+        {
+            Type = Type;
+            Name = "Bentley";
+            Model = model;
+            CarCode = car_code;
+            Color = color;
+            Price = price;
+            count++;
+        }
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
+        public override void AboutCar()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Название: " + Name);
+            Console.WriteLine("Тип: " + Type);
+            Console.WriteLine("");
+        }
+        public override void AboutCar(bool check)
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Название: " + Name);
+            Console.WriteLine("Тип: " + Type);
+            Console.WriteLine("Модель: " + Model);
+            Console.WriteLine("Код автомобиля: " + CarCode);
+            Console.WriteLine("Цвет: " + String.Join(" ", Color));
+            Console.WriteLine("Цена: " + Price);
+            Console.WriteLine("В наличии: " + Count);
+            Console.WriteLine("");
+        }
+    }
+    public class Nissan : Car
+    {
+        static int count = 0;
+
+        public Nissan(string name, string model, string car_code, string[] color, double price)
+        {
+            Type = Type;
+            Name = "Nissan";
+            Model = model;
+            CarCode = car_code;
+            Color = color;
+            Price = price;
+            count++;
+        }
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
+        public override void AboutCar()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Название: " + Name);
+            Console.WriteLine("Тип: " + Type);
+            Console.WriteLine("");
+        }
+        public override void AboutCar(bool check)
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Название: " + Name);
+            Console.WriteLine("Тип: " + Type);
+            Console.WriteLine("Модель: " + Model);
+            Console.WriteLine("Код автомобиля: " + CarCode);
+            Console.WriteLine("Цвет: " + String.Join(" ", Color));
+            Console.WriteLine("Цена: " + Price);
+            Console.WriteLine("В наличии: " + Count);
+            Console.WriteLine("");
+        }
+    }
+    public class Mazda : Car
+    {
+        static int count = 0;
+
+        public Mazda(string name, string model, string car_code, string[] color, double price)
+        {
+            Type = Type;
+            Name = "Mazda";
+            Model = model;
+            CarCode = car_code;
+            Color = color;
+            Price = price;
+            count++;
+        }
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
+        public override void AboutCar()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Название: " + Name);
+            Console.WriteLine("Тип: " + Type);
+            Console.WriteLine("");
+        }
+        public override void AboutCar(bool check)
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Название: " + Name);
+            Console.WriteLine("Тип: " + Type);
+            Console.WriteLine("Модель: " + Model);
+            Console.WriteLine("Код автомобиля: " + CarCode);
+            Console.WriteLine("Цвет: " + String.Join(" ", Color));
+            Console.WriteLine("Цена: " + Price);
+            Console.WriteLine("В наличии: " + Count);
+            Console.WriteLine("");
+        }
+    }
+}
