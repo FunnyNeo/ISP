@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Fractions
 {
@@ -21,13 +23,6 @@ namespace Fractions
 
         public Fraction(string s)
         {
-            /*
-             * Regex re = new Regex(@"(?<Num>\d+)\/(?<Den>\d+)");
-             * if (!re.IsMatch(s))
-             *     throw new ArithmeticException();
-             * Match = re.Match(s);
-             * ...
-             */
             if (!s.Contains('/') || s.Count(c => c == '/') != 1)
                 throw new ArithmeticException("Not a rational number");
             string[] result = s.Split('/');
@@ -37,8 +32,21 @@ namespace Fractions
                     throw new ArithmeticException("Not a rational number");
             }
 
-            Num = int.Parse(result[0]);
-            Den = int.Parse(result[1]);
+            this.Num = int.Parse(result[0]);
+            this.Den = int.Parse(result[1]);
+        }
+
+        public static Fraction fromString(string s)
+        {
+            Regex re = new Regex(@"(?<Num>\d+)\/(?<Den>\d+)");
+            if (!re.IsMatch(s))
+                throw new ArithmeticException();
+            Match m = re.Match(s);
+            
+            int num = int.Parse(m.Groups["Num"].Value);
+            int den = int.Parse(m.Groups["Den"].Value);
+            
+            return new Fraction(num, den);
         }
 
         public static explicit operator int(Fraction a) => a.AsInt;
@@ -60,6 +68,7 @@ namespace Fractions
         }
 
         public override string ToString() => $"{Num}/{Den}";
+        public string ToString(IFormatProvider fmt) => $"{Num.ToString(fmt)}/{Den.ToString(fmt)}";
         
         protected bool Equals(Fraction other)
         {
