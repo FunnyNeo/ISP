@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Work\\RiderProjects\\Fractions\\Fractions.csproj": {}
+    "C:\\Users\\Иван\\source\\repos\\Fractions\\Fractions.csproj": {}
   },
   "projects": {
-    "D:\\Work\\RiderProjects\\Fractions\\Fractions.csproj": {
+    "C:\\Users\\Иван\\source\\repos\\Fractions\\Fractions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\RiderProjects\\Fractions\\Fractions.csproj",
+        "projectUniqueName": "C:\\Users\\Иван\\source\\repos\\Fractions\\Fractions.csproj",
         "projectName": "Fractions",
-        "projectPath": "D:\\Work\\RiderProjects\\Fractions\\Fractions.csproj",
-        "packagesPath": "C:\\Users\\Meow\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\RiderProjects\\Fractions\\obj\\",
+        "projectPath": "C:\\Users\\Иван\\source\\repos\\Fractions\\Fractions.csproj",
+        "packagesPath": "C:\\Users\\Иван\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Иван\\source\\repos\\Fractions\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Meow\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Иван\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
