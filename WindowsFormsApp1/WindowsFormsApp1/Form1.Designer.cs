@@ -372,30 +372,30 @@
             this.groupBox1.Controls.Add(this.buttonNum6);
             this.groupBox1.Controls.Add(this.buttonNum5);
             this.groupBox1.Controls.Add(this.buttonNum4);
-            this.groupBox1.Location = new System.Drawing.Point(28, 58);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(376, 375);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Калькулятор ver 9000";
             // 
             // labelNumber
             // 
             this.labelNumber.AutoSize = true;
             this.labelNumber.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelNumber.Location = new System.Drawing.Point(338, 16);
+            this.labelNumber.Location = new System.Drawing.Point(373, 16);
             this.labelNumber.Name = "labelNumber";
-            this.labelNumber.Size = new System.Drawing.Size(35, 13);
+            this.labelNumber.Size = new System.Drawing.Size(0, 13);
             this.labelNumber.TabIndex = 28;
-            this.labelNumber.Text = "label1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(403, 396);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

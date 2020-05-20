@@ -330,6 +330,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
     }
 
     //Интерфейс для основных функций калькулятора
@@ -344,7 +345,7 @@ namespace WindowsFormsApp1
         double Subtraction(double b);
         double Sqrt();
         double Square();
-        double Fact();   
+        double Fact();
     }
 
     //Интерфейс для MRC
@@ -398,8 +399,8 @@ namespace WindowsFormsApp1
 
     }
 
-        public class Calc : ICalc
-        {
+    public class Calc : ICalc
+    {
         private double a = 0;
         public void Put_A(double a)
         {

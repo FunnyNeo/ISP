@@ -97,17 +97,13 @@ namespace Fractions
         {
             return HashCode.Combine(Num, Den);
         }
-        
+
         //Порядковое сравнение от IComparable
         public int CompareTo(Fraction? obj)
         {
             if (obj == null) return 1;
 
-            Fraction otherFraction = obj as Fraction;
-            if (otherFraction != null)
-                return this.AsDecimal.CompareTo(otherFraction.AsDecimal);
-            else
-                throw new ArgumentException();
+            return this.AsDecimal.CompareTo(obj.AsDecimal);
         }
 
         //явно ставим + и -

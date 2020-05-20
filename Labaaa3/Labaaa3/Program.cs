@@ -105,7 +105,7 @@ namespace Labaaa3
                                 color = Console.ReadLine();
                                 Console.WriteLine("Укажите цену:");
                                 price = Convert.ToDouble(Console.ReadLine());
-                                Bmw item = new Bmw(type, name, model, car_code, new string[] { color }, price);
+                                Car item = new Bmw(type, name, model, car_code, new string[] { color }, price);
                                 BmwList.Add(item);
                                 Console.WriteLine("Автомобиль успешно добавлен!");
                                 break;
@@ -183,7 +183,7 @@ namespace Labaaa3
         }
     }
     public enum Types { Passenger, Jeep, Truck, Minivan }
-    public class Car//Класс автомобилей
+    public abstract class Car//Класс автомобилей
     {
         public Types types;
         private string name;
